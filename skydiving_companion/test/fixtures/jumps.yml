@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  date: 2017-05-11 13:26:45
+  loaction: MyString
+  altitude: 1
+  gear: MyString
+  description: MyText
+
+two:
+  number: 1
+  date: 2017-05-11 13:26:45
+  loaction: MyString
+  altitude: 1
+  gear: MyString
+  description: MyText

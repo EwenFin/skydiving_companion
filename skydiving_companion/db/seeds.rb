@@ -1,0 +1,2 @@
+Jump.destroy_all
+
