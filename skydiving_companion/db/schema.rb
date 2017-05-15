@@ -10,24 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512095223) do
+ActiveRecord::Schema.define(version: 20170515141045) do
 
   create_table "jumps", force: :cascade do |t|
     t.integer  "number"
-    t.datetime "date"
     t.string   "location"
+    t.datetime "date"
     t.integer  "altitude"
     t.string   "gear"
+    t.integer  "user_id"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "skydives", force: :cascade do |t|
-    t.integer  "jump_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
