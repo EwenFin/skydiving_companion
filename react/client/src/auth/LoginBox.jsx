@@ -23,7 +23,6 @@ class LoginBox extends React.Component {
     req.get(`${this.props.url}users.json`, (err, user, status) => {
       if(err) {throw err}
 
-        console.log(user)
       
         if(status === 200){
           this.setState({

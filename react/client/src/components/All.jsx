@@ -32,7 +32,7 @@ class All extends React.Component{
       return(
   <div className="all">
 
-    <h1>Jump History</h1>
+    <h1>LogBook</h1>
     <div>
     <ol>
     {allJumps}

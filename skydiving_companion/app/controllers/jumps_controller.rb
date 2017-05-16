@@ -3,7 +3,7 @@ class JumpsController  < ApplicationController
 
   
   def jump_params
-    params.require(:jump).permit([:number, :date, :location, :altitude, :gear, :description])
+    params.require(:jump).permit([:number, :date, :location, :altitude, :gear, :description, :user_id])
   end
 
   def index

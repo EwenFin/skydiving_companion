@@ -9,7 +9,7 @@ class NavBar extends React.Component{
     <ul>
       <li><Link className='jump-new' to='/new'>Record New Jump</Link></li>
   
-      <li><Link className='jump-history' to='/all'>View Jump History</Link></li>
+      <li><Link className='jump-history' to='/all'>View LogBook</Link></li>
   
       <li><Link className='map' to='/map'>Map</Link></li>
 
