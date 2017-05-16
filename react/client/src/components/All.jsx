@@ -1,5 +1,6 @@
 import React from 'react'
 import AjaxRequest from '../services/AjaxRequest.js'
+import Display from './Display'
 
 
 class All extends React.Component{
@@ -7,7 +8,8 @@ class All extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      jumps: []
+      jumps: [],
+      jumpDetails: null
     }
   }
 
@@ -22,22 +24,35 @@ class All extends React.Component{
     })
   }
 
+  handleClick(index){
+
+    const jumpDetails = this.state.jumps[index]
+    console.log(jumpDetails)
+    this.setState({
+      jumpDetails: jumpDetails
+    })
+
+   
+  
+  }
+
   render(){
 
     const allJumps = this.state.jumps.map((jump, index) => {
-      console.log(jump)
-      return <button value= {index} key={index}><li>Date: {jump.date}  Altitude: {jump.altitude}ft DropZone: {jump.location} </li></button>
+      return <button value= {index} key={index} onClick= {() => this.handleClick(index)}><li>Date: {jump.date}  Altitude: {jump.altitude}ft DropZone: {jump.location} </li></button>
       
       })
       return(
   <div className="all">
 
     <h1>LogBook</h1>
+    <div><Display jumpDetails={this.state.jumpDetails}/></div>
     <div>
     <ol>
     {allJumps}
     </ol>
     </div>
+
   </div>
   )
     }
