@@ -13,10 +13,6 @@ class GMap extends React.Component {
   }
   
 
-  // static propTypes() {
-  //   initialCenter: React.PropTypes.objectOf(React.PropTypes.number).isRequired
-  // }
-
   render() {
 
     return (
@@ -182,13 +178,8 @@ class GMap extends React.Component {
     google.maps.event.addListener(marker, 'click', function() {
         infoWindow.open(this.getMap(), this);
     });
-    
-    
     return marker 
   }
-
-
-
 
   createInfoWindow(info, marker) {
     return new google.maps.InfoWindow({
@@ -198,8 +189,5 @@ class GMap extends React.Component {
     })
   }
 }
-
-var initialCenter = { lng: -3.2 , lat: 53.9717272 }
-
 
 export default GMap

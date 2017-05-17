@@ -69,7 +69,7 @@ class New extends React.Component {
       }
       const req = new AjaxRequest()
       req.post("http://localhost:5000/api/jumps", JSON.stringify(jumpDetails), (err, res) => {
-        
+        console.log(res)
       })
       console.log(jumpDetails)
     }else{ alert("all fields required")}
