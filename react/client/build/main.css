@@ -1,0 +1,11 @@
+.GMap {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.GMap-canvas {
+  top: 20px;
+  display: block;
+  width: 800px;
+  height: 400px;
+}

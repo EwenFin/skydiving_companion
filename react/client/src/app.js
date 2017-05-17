@@ -22,7 +22,6 @@ class App extends React.Component{
           <Route exact path="/" component={Home} />
           <Route path ="/new" component={NewJump} />
           <Route path ="/all" component={AllJumps} />
-          <Route path ="/map" component={GMap} />
         </div>
       </HashRouter>
     )
