@@ -6,7 +6,7 @@ class GMap extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = { zoom: 6 };
+    this.state = { zoom: 5 };
   }
   
 
@@ -26,7 +26,7 @@ class GMap extends React.Component {
 
   componentDidMount() {
     this.map = this.createMap()
-    this.marker = this.createMarker()
+    this.marker = this.createMarker({lat:52.89145, lng:-0.908689}, 'B P S Skydive Langar \n 01949 860878 \n www.skydivelangar.co.uk' )
   }
 
   
@@ -49,19 +49,42 @@ class GMap extends React.Component {
     )
   }
 
-  createMarker(position) {
-    return new google.maps.Marker({
+  createMarker(position, info) {
+    let marker = new google.maps.Marker({
       position: position,
-      map: this.map
+      map: this.map,
+      animation: google.maps.Animation.DROP,
+      icon: 'bpaMapLogo.png',
+      clickable: true
+
     })
+    let infoWindow = this.createInfoWindow(info, marker)
+      infoWindow.close()
+    google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.open(this.getMap(), this);
+    });
+    
+    
+    return marker 
   }
 
-  createInfoWindow() {
-    let contentString = "<div class='InfoWindow'>I'm a Window that contains Info Yay</div>"
+  // function add_marker(racer_id, point, note) {
+  //     var marker = new google.maps.Marker({map: map, position: point, clickable: true});
+  //     marker.note = note;
+  //     google.maps.event.addListener(marker, 'click', function() {
+  //         info_window.content = this.note;
+  //         info_window.open(this.getMap(), this);
+  //     });
+  //     return marker;
+  // }
+
+
+
+  createInfoWindow(info, marker) {
     return new google.maps.InfoWindow({
       map: this.map,
-      anchor: this.marker,
-      content: contentString
+      anchor: marker,
+      content: info
     })
   }
 }
