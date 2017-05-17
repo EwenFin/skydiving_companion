@@ -18,8 +18,8 @@ class GMap extends React.Component {
     return (
 
       <div className="GMap">
-      <button onClick= {this.populateDropZones.bind(this)}>Show All DZs</button>
-      <button>Find Nearest DZ</button>
+      <button onClick = {this.populateDropZones.bind(this)}>Show All DZs</button>
+      <button onClick = {this.geoLocate.bind(this)}>Find Me!</button>
       <div className='GMap-canvas' ref="mapCanvas">{this.map}
       </div>
     </div>
@@ -147,7 +147,23 @@ class GMap extends React.Component {
     google.maps.event.clearListeners(map, 'zoom_changed')
   }
 
-
+  geoLocate(){
+    console.log("find clicked")
+    navigator.geolocation.getCurrentPosition(function (position) {
+      const pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      }
+      const infoWindow = new google.maps.InfoWindow()
+      infoWindow.setPosition(pos)
+      infoWindow.setContent('Your Location')
+      infoWindow.open(this.map)
+      this.map.setCenter(pos)
+      this.map.setZoom(9)
+    }.bind(this), function () {
+        this.handleLocationError(true, infoWindow, this.map.getCenter())
+      })
+  }
 
   createMap() {
     let mapOptions = {

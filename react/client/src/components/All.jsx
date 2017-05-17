@@ -39,7 +39,7 @@ class All extends React.Component{
   render(){
 
     const allJumps = this.state.jumps.map((jump, index) => {
-      return <button value= {index} key={index} onClick= {() => this.handleClick(index)}><li>Date: {jump.date}  Altitude: {jump.altitude}ft DropZone: {jump.location} </li></button>
+      return <button id="logbookButton" value= {index} key={index} onClick= {() => this.handleClick(index)}><li> Date: {new Date(jump.date).toString().substring(0, 15)}      Altitude: {jump.altitude}ft DropZone: {jump.location} </li></button>
       
       })
       return(

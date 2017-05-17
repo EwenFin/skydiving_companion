@@ -6,7 +6,6 @@ import AllJumps from './components/All'
 import GMap from './components/Map'
 import NavBar from './components/NavBar'
 import Main from './components/Main'
-// import {Router, Route, IndexRoute, hashHistory} from 'react-router'
 import { HashRouter, Route, IndexRoute } from 'react-router-dom'
 
 
