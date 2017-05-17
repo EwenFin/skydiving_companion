@@ -12,6 +12,8 @@ class NavBar extends React.Component{
       <li><Link className='jump-history' to='/all'>View LogBook</Link></li>
 
       <li><Link className='home' to='/'>Home</Link></li>
+
+      <li><Link className='map' to='/map'>Map</Link></li>
     </ul>
   </div>
     )
